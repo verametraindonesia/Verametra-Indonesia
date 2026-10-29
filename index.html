@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verametra Indonesia — Digital Agency & Technical Support Partner for Architects, Interiors & Contractors</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#231F20',
+                        darkSurface: '#1B1819',
+                        darkCard: '#191617',
+                        crimson: '#8E1F34',
+                        brightCrimson: '#D6234A',
+                        skyAccent: '#4FA3C7',
+                        salmonAccent: '#F58A5B',
+                        mutedGray: '#B6B7B8',
+                        darkMuted: '#4E494A'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'system-ui', '-apple-system', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Montserrat Only (Clean, Modern, Zero Decorative Curls) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #231F20;
+            color: #FFFFFF;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-nav {
+            background: rgba(35, 31, 32, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1B1819;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #4E494A;
+            border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #8E1F34;
+        }
+        .cinematic-overlay {
+            background: linear-gradient(135deg, rgba(35,31,32,0.92) 0%, rgba(27,24,25,0.85) 100%);
+        }
+    </style>
+</head>
+<body class="bg-[#231F20] text-white antialiased selection:bg-[#8E1F34] selection:text-white custom-scrollbar">
+
+    <!-- Sticky Navigation Bar (Single Page Menu) -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-[#4E494A]/40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <!-- Logo Mark -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-3.5 h-3.5 bg-[#8E1F34] rotate-45 transition-transform duration-300 group-hover:rotate-90"></div>
+                <div class="flex flex-col">
+                    <span class="font-bold tracking-[0.2em] text-xs sm:text-sm uppercase text-white">VERAMETRA</span>
+                    <span class="text-[8px] sm:text-[9px] tracking-[0.25em] text-mutedGray uppercase">Indonesia Partnership</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-6 text-[11px] font-semibold tracking-[0.16em] uppercase text-mutedGray">
+                <a href="#tentang" class="hover:text-white transition-colors">Tentang</a>
+                <a href="#paket" class="hover:text-white transition-colors">Paket</a>
+                <a href="#support" class="hover:text-white transition-colors">Support Teknis</a>
+                <a href="#pembayaran" class="hover:text-white transition-colors">Pembayaran &amp; Privasi</a>
+                <a href="#timeline" class="hover:text-white transition-colors">Timeline</a>
+                <a href="#kontak" class="hover:text-white transition-colors">Kontak</a>
+            </nav>
+
+            <!-- WhatsApp CTA Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://wa.me/6289526243141?text=Halo%20Verametra,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20Digital%20Agency%20dan%20Support%20Teknis." target="_blank" rel="noopener noreferrer" class="bg-[#8E1F34] hover:bg-[#D6234A] text-white px-5 py-2.5 rounded-none text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center gap-2 shadow-lg">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span>WhatsApp Sales</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="lg:hidden text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#1B1819] border-b border-[#4E494A] px-6 py-6 space-y-4 shadow-2xl">
+            <a href="#tentang" class="block text-xs font-semibold tracking-widest text-mutedGray hover:text-white uppercase">Tentang</a>
+            <a href="#paket" class="block text-xs font-semibold tracking-widest text-mutedGray hover:text-white uppercase">Paket Bulanan</a>
+            <a href="#support" class="block text-xs font-semibold tracking-widest text-mutedGray hover:text-white uppercase">Support Teknis</a>
+            <a href="#pembayaran" class="block text-xs font-semibold tracking-widest text-mutedGray hover:text-white uppercase">Pembayaran &amp; Privasi</a>
+            <a href="#timeline" class="block text-xs font-semibold tracking-widest text-mutedGray hover:text-white uppercase">Timeline</a>
+            <a href="#kontak" class="block text-xs font-semibold tracking-widest text-mutedGray hover:text-white uppercase">Kontak</a>
+            <div class="pt-4 border-t border-[#4E494A]">
+                <a href="https://wa.me/6289526243141" target="_blank" class="w-full bg-[#8E1F34] text-white py-3 text-xs font-bold tracking-widest uppercase flex items-center justify-center gap-2">
+                    <i data-lucide="message-square" class="w-4 h-4"></i> WhatsApp Sales
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container (Single Page) -->
+    <main class="pt-20">
+
+        <!-- 1. HERO SECTION WITH CINEMATIC IMAGE SLIDER (NO CORPORATE DOSSIER BOX) -->
+        <section id="hero" class="relative min-h-[90vh] sm:min-h-[92vh] flex items-center border-b border-[#4E494A]/40 overflow-hidden">
+            <!-- Slider Container -->
+            <div id="hero-slider" class="absolute inset-0 z-0">
+                <!-- Slide 1 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop" alt="Modern Architecture Studio" class="w-full h-full object-cover scale-105">
+                    <div class="absolute inset-0 cinematic-overlay"></div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1920&auto=format&fit=crop" alt="Architectural Drafting & 3D Modeling" class="w-full h-full object-cover scale-105">
+                    <div class="absolute inset-0 cinematic-overlay"></div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1920&auto=format&fit=crop" alt="Interior Design Luxury" class="w-full h-full object-cover scale-105">
+                    <div class="absolute inset-0 cinematic-overlay"></div>
+                </div>
+            </div>
+
+            <!-- Hero Content Overlay -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full py-20 relative z-10">
+                <div class="max-w-3xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#8E1F34]/25 border border-[#8E1F34]/50 text-xs font-semibold tracking-[0.2em] text-[#D6234A] uppercase">
+                        <span>Digital Agency &amp; Technical Partner for Architects, Interiors &amp; Contractors</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl text-white font-extrabold tracking-tight leading-[1.1]">
+                        VERAMETRA <span class="text-[#D6234A]">INDONESIA</span>
+                    </h1>
+
+                    <div class="w-16 h-1 bg-[#8E1F34]"></div>
+
+                    <p class="text-base sm:text-lg text-mutedGray font-normal leading-relaxed">
+                        &ldquo;Fokus pada Proyek Utama Anda, Kami Urus Pemasaran &amp; Operasional Teknis Studio Anda.&rdquo;
+                    </p>
+
+                    <div class="pt-4 flex flex-wrap gap-4">
+                        <a href="#paket" class="bg-[#8E1F34] hover:bg-[#D6234A] text-white px-8 py-3.5 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xl">
+                            Lihat Paket Bulanan
+                        </a>
+                        <a href="#support" class="border border-[#4E494A] hover:border-white bg-[#231F20]/50 backdrop-blur-sm text-white px-8 py-3.5 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300">
+                            Support Teknis &amp; Tarif
+                        </a>
+                    </div>
+
+                    <div class="pt-8 flex items-center gap-6 text-xs text-mutedGray font-medium tracking-wider">
+                        <span class="flex items-center gap-2"><i data-lucide="globe" class="w-4 h-4 text-[#4FA3C7]"></i> verametra.com</span>
+                        <span class="flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4 text-[#D6234A]"></i> Katalog 2026 / 2027</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Indicators -->
+            <div class="absolute bottom-6 right-6 z-20 hidden sm:flex items-center gap-2">
+                <button onclick="currentSlide(0)" class="slider-dot w-8 h-1 bg-white transition-all" aria-label="Slide 1"></button>
+                <button onclick="currentSlide(1)" class="slider-dot w-4 h-1 bg-white/40 transition-all" aria-label="Slide 2"></button>
+                <button onclick="currentSlide(2)" class="slider-dot w-4 h-1 bg-white/40 transition-all" aria-label="Slide 3"></button>
+            </div>
+        </section>
+
+        <!-- 2. TENTANG VERAMETRA INDONESIA (CHAPTER 01) -->
+        <section id="tentang" class="py-24 bg-[#231F20] border-b border-[#4E494A]/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                
+                <!-- Chapter Header -->
+                <div class="flex items-baseline gap-6 pb-6 border-b border-[#4E494A] mb-16">
+                    <span class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">01<span class="text-[#8E1F34] font-light">/</span></span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl text-white font-bold tracking-wide uppercase">1. TENTANG VERAMETRA INDONESIA</h2>
+                        <span class="text-xs font-semibold tracking-[0.2em] text-[#8E1F34] uppercase">Strategic Digital &amp; Technical Back-Office Partner</span>
+                    </div>
+                </div>
+
+                <!-- Cinematic Feature Photo Banner -->
+                <div class="relative border border-[#4E494A] bg-[#191617] mb-16 overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop" alt="Architecture Drafting Desk" class="w-full h-72 sm:h-96 object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#231F20] via-transparent to-transparent opacity-95"></div>
+                    <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+                        <p class="text-sm sm:text-base text-white font-medium max-w-xl leading-relaxed">
+                            Fokus pada Proyek Utama Anda, Kami Urus Pemasaran &amp; Operasional Teknis Studio Anda.
+                        </p>
+                        <span class="text-xs font-bold tracking-[0.2em] text-[#8E1F34] uppercase bg-[#231F20]/90 px-4 py-2 border border-[#4E494A]">ARCH / INT / CIVIL</span>
+                    </div>
+                </div>
+
+                <!-- Challenge vs Solution Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                    <div class="border-t border-[#4E494A] pt-6 bg-[#1B1819] p-8">
+                        <span class="text-xs font-semibold tracking-[0.2em] text-[#8E1F34] uppercase block mb-3">Tantangan Studio Arsitektur, Interior &amp; Kontraktor Saat Ini</span>
+                        <p class="text-mutedGray text-sm leading-relaxed mb-4">
+                            Banyak profesional arsitek dan kontraktor handal yang kehabisan waktu untuk membangun branding, mengelola media sosial, membangun website yang dapat mendatangkan klien secara organic, hingga kewalahan membuat desain (3D, DED dan RAB) saat proyek menumpuk. Di sisi lain, digital agency yang tersedia di pasaran sering kali tidak memahami bahasa teknis arsitektur, interior dan alur kerja industri konstruksi sehingga tidak dapat menjadi solusi ketika studio membutuhkan tenaga teknis.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-[#4E494A] pt-6 bg-[#1B1819] p-8">
+                        <span class="text-xs font-semibold tracking-[0.2em] text-[#4FA3C7] uppercase block mb-3">Solusi Verametra Indonesia</span>
+                        <p class="text-mutedGray text-sm leading-relaxed mb-4">
+                            Kami hadir sebagai mitra strategis All-in-One yang menjembatani keahlian pemasaran digital modern dengan pemahaman teknis mendalam dalam dunia arsitektur dan konstruksi. Kami membantu studio Anda tumbuh dengan aliran prospek (leads) yang stabil sekaligus menjadi tim back-office cadangan yang siap mendukung produksi gambar teknis untuk proyek Anda.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Long-Term Asset Authority -->
+                <div class="bg-[#191617] border border-[#4E494A] p-8 relative">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#8E1F34]"></div>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3">Pemasaran Digital Bukan Sekadar Iklan Sesaat, Tapi Investasi Aset Berkelanjutan</h3>
+                    <p class="text-mutedGray text-sm leading-relaxed mb-6">
+                        Berbeda dengan metode pemasaran instan yang langsung berhenti saat anggaran iklan habis, kombinasi fondasi Website SEO, reputasi media sosial terkonsep, dan kerapihan manajemen teknis adalah strategi membangun &lsquo;Mesin Penjual Otomatis&rsquo; dengan berbagai keunggulan diantaranya:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-[#231F20] p-6 border border-[#4E494A]/60">
+                            <h4 class="text-white font-bold text-xs tracking-wider uppercase mb-2 text-[#4FA3C7]">Keunggulan Jangka Panjang</h4>
+                            <p class="text-xs text-mutedGray leading-relaxed">
+                                Seiring bertambahnya usia domain website Anda di Google (setelah melewati 3-6 bulan pertama), otoritas studio Anda akan makin dipercaya. Hal ini memicu efek bola salju di mana lead prospek berkualitas tinggi akan terus berdatangan secara alami tanpa ketergantungan penuh pada biaya iklan secara terus-menerus.
+                            </p>
+                        </div>
+                        <div class="bg-[#231F20] p-6 border border-[#4E494A]/60">
+                            <h4 class="text-white font-bold text-xs tracking-wider uppercase mb-2 text-[#D6234A]">Eksklusivitas &amp; Otoritas Portofolio</h4>
+                            <p class="text-xs text-mutedGray leading-relaxed">
+                                Setiap konten visual dan artikel SEO yang dibangun hari ini menjadi portofolio abadi yang menaikkan nilai jual studio Anda dari tahun ke tahun.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. PILIHAN PAKET BULANAN (CHAPTER 02) -->
+        <section id="paket" class="py-24 bg-[#F4F4F4] text-[#231F20] border-b border-gray-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                
+                <!-- Chapter Header -->
+                <div class="flex items-baseline gap-6 pb-6 border-b border-gray-400 mb-12">
+                    <span class="text-4xl sm:text-5xl font-extrabold text-[#231F20] tracking-tight">02<span class="text-[#8E1F34] font-light">/</span></span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl text-[#231F20] font-bold tracking-wide uppercase">2. PILIHAN PAKET BULANAN (SUBSCRIPTION SERVICES)</h2>
+                        <span class="text-xs font-semibold tracking-[0.2em] text-[#8E1F34] uppercase">Annual Retainer &amp; Multi-Channel Studio Growth</span>
+                    </div>
+                </div>
+
+                <!-- Contract Warning Notice -->
+                <div class="bg-white border-l-4 border-[#8E1F34] border border-gray-300 p-4 mb-10 shadow-sm flex items-center justify-between flex-wrap gap-4">
+                    <p class="text-xs sm:text-sm font-semibold text-[#231F20]">
+                        * Seluruh paket berlangganan berlaku dengan jangka waktu minimal kontrak <strong class="text-[#8E1F34]">12 Bulan</strong> demi menjaga stabilitas hasil optimasi digital.
+                    </p>
+                    <span class="text-[10px] bg-[#231F20] text-white px-3 py-1 uppercase tracking-wider font-bold">Minimum Contract: 12 Months</span>
+                </div>
+
+                <!-- Pricing Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    
+                    <!-- Starter -->
+                    <div class="bg-white border border-gray-300 p-6 flex flex-col justify-between shadow-sm hover:border-[#8E1F34] transition-all">
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-gray-500 block mb-1">Tier 01</span>
+                            <h3 class="text-lg font-bold text-[#231F20] mb-2">Starter</h3>
+                            <div class="text-base font-bold text-[#8E1F34] mb-4">Rp 2,5 Juta<span class="text-xs font-normal text-gray-500"> / bln</span></div>
+                            <ul class="space-y-3 text-xs text-gray-700 border-t border-gray-200 pt-4 mb-6">
+                                <li class="flex justify-between items-center"><span>Platform Sosmed:</span> <strong class="text-right text-[11px]">IG, FB, TikTok, Threads, YT</strong></li>
+                                <li class="flex justify-between items-center"><span>Reels &amp; Feed:</span> <strong class="text-right">4 Reels &amp; 4 Feed</strong></li>
+                                <li class="flex justify-between items-center"><span>Scene Render AI:</span> <strong class="text-right">4 Scene</strong></li>
+                                <li class="flex justify-between items-center"><span>Layanan Konten:</span> <strong class="text-right">Copywriting &amp; Editing</strong></li>
+                                <li class="flex justify-between items-center"><span>Website SEO:</span> <strong class="text-right">Single-Page SEO</strong></li>
+                                <li class="flex justify-between items-center text-gray-400"><span>Support Gambar Teknis:</span> <span>Tidak Termasuk</span></li>
+                                <li class="flex justify-between items-center text-gray-400"><span>Business Advisory:</span> <span>Tidak Termasuk</span></li>
+                                <li class="flex justify-between items-center"><span>Revisi Konten:</span> <strong class="text-right">Maksimal 3x</strong></li>
+                                <li class="flex justify-between items-center"><span>Minimal Kontrak:</span> <strong class="text-right">12 Bulan</strong></li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/6289526243141?text=Halo%20Verametra,%20saya%20tertarik%20dengan%20Paket%20Starter%20(Rp%202,5%20Juta/bln)" target="_blank" class="w-full bg-[#231F20] hover:bg-[#8E1F34] text-white py-2.5 text-center text-xs font-bold tracking-widest uppercase transition-colors">
+                            Pilih Starter
+                        </a>
+                    </div>
+
+                    <!-- Growth -->
+                    <div class="bg-white border border-gray-300 p-6 flex flex-col justify-between shadow-sm hover:border-[#8E1F34] transition-all">
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-gray-500 block mb-1">Tier 02</span>
+                            <h3 class="text-lg font-bold text-[#231F20] mb-2">Growth</h3>
+                            <div class="text-base font-bold text-[#8E1F34] mb-4">Rp 3,5 Juta<span class="text-xs font-normal text-gray-500"> / bln</span></div>
+                            <ul class="space-y-3 text-xs text-gray-700 border-t border-gray-200 pt-4 mb-6">
+                                <li class="flex justify-between items-center"><span>Platform Sosmed:</span> <strong class="text-right text-[11px]">IG, FB, TikTok, Threads, YT</strong></li>
+                                <li class="flex justify-between items-center"><span>Reels &amp; Feed:</span> <strong class="text-right">6 Reels &amp; 6 Feed</strong></li>
+                                <li class="flex justify-between items-center"><span>Scene Render AI:</span> <strong class="text-right">6 Scene</strong></li>
+                                <li class="flex justify-between items-center"><span>Layanan Konten:</span> <strong class="text-right">Copywriting &amp; Editing</strong></li>
+                                <li class="flex justify-between items-center"><span>Website SEO:</span> <strong class="text-right">Multi-Page Standard</strong></li>
+                                <li class="flex justify-between items-center text-gray-400"><span>Support Gambar Teknis:</span> <span>Tidak Termasuk</span></li>
+                                <li class="flex justify-between items-center text-gray-400"><span>Business Advisory:</span> <span>Tidak Termasuk</span></li>
+                                <li class="flex justify-between items-center"><span>Revisi Konten:</span> <strong class="text-right">Maksimal 3x</strong></li>
+                                <li class="flex justify-between items-center"><span>Minimal Kontrak:</span> <strong class="text-right">12 Bulan</strong></li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/6289526243141?text=Halo%20Verametra,%20saya%20tertarik%20dengan%20Paket%20Growth%20(Rp%203,5%20Juta/bln)" target="_blank" class="w-full bg-[#231F20] hover:bg-[#8E1F34] text-white py-2.5 text-center text-xs font-bold tracking-widest uppercase transition-colors">
+                            Pilih Growth
+                        </a>
+                    </div>
+
+                    <!-- Pro (Populer) -->
+                    <div class="bg-[#231F20] text-white border-2 border-[#8E1F34] p-6 flex flex-col justify-between shadow-xl relative transform lg:-translate-y-2">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#8E1F34] text-white text-[9px] font-bold tracking-[0.2em] px-3 py-1 uppercase">
+                            Paling Populer
+                        </div>
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-[#4FA3C7] block mb-1">Tier 03</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Pro (Populer)</h3>
+                            <div class="text-base font-bold text-[#D6234A] mb-4">Rp 4,5 Juta<span class="text-xs font-normal text-mutedGray"> / bln</span></div>
+                            <ul class="space-y-3 text-xs text-mutedGray border-t border-[#4E494A] pt-4 mb-6">
+                                <li class="flex justify-between items-center text-white"><span>Platform Sosmed:</span> <strong class="text-right text-[11px]">IG, FB, TikTok, Threads, YT</strong></li>
+                                <li class="flex justify-between items-center text-white"><span>Reels &amp; Feed:</span> <strong class="text-right text-[#D6234A]">8 Reels &amp; 8 Feed</strong></li>
+                                <li class="flex justify-between items-center text-white"><span>Scene Render AI:</span> <strong class="text-right text-[#D6234A]">8 Scene</strong></li>
+                                <li class="flex justify-between items-center text-white"><span>Layanan Konten:</span> <strong class="text-right">Copywriting &amp; Editing</strong></li>
+                                <li class="flex justify-between items-center text-white"><span>Website SEO:</span> <strong class="text-right text-[#4FA3C7]">Multi-Page Advanced</strong></li>
+                                <li class="flex justify-between items-center text-white"><span>Support Gambar Teknis:</span> <strong class="text-right text-green-400 text-[11px]">Denah, 3D, DED &amp; RAB</strong></li>
+                                <li class="flex justify-between items-center text-gray-500"><span>Business Advisory:</span> <span>Tidak Termasuk</span></li>
+                                <li class="flex justify-between items-center text-white"><span>Revisi Konten:</span> <strong class="text-right">Maksimal 3x</strong></li>
+                                <li class="flex justify-between items-center text-white"><span>Minimal Kontrak:</span> <strong class="text-right">12 Bulan</strong></li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/6289526243141?text=Halo%20Verametra,%20saya%20tertarik%20dengan%20Paket%20Pro%20Populer%20(Rp%204,5%20Juta/bln)" target="_blank" class="w-full bg-[#8E1F34] hover:bg-[#D6234A] text-white py-3 text-center text-xs font-bold tracking-widest uppercase transition-colors shadow-lg">
+                            Pilih Pro (Populer)
+                        </a>
+                    </div>
+
+                    <!-- Enterprise -->
+                    <div class="bg-white border border-gray-300 p-6 flex flex-col justify-between shadow-sm hover:border-[#8E1F34] transition-all">
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-gray-500 block mb-1">Tier 04</span>
+                            <h3 class="text-lg font-bold text-[#231F20] mb-2">Enterprise</h3>
+                            <div class="text-base font-bold text-[#8E1F34] mb-4">Rp 6,0 Juta<span class="text-xs font-normal text-gray-500"> / bln</span></div>
+                            <ul class="space-y-3 text-xs text-gray-700 border-t border-gray-200 pt-4 mb-6">
+                                <li class="flex justify-between items-center"><span>Platform Sosmed:</span> <strong class="text-right text-[11px]">IG, FB, TikTok, Threads, YT</strong></li>
+                                <li class="flex justify-between items-center"><span>Reels &amp; Feed:</span> <strong class="text-right">10 Reels &amp; 10 Feed</strong></li>
+                                <li class="flex justify-between items-center"><span>Scene Render AI:</span> <strong class="text-right">10 Scene</strong></li>
+                                <li class="flex justify-between items-center"><span>Layanan Konten:</span> <strong class="text-right">Copywriting &amp; Editing</strong></li>
+                                <li class="flex justify-between items-center"><span>Website SEO:</span> <strong class="text-right">Custom Portfolio Web</strong></li>
+                                <li class="flex justify-between items-center"><span>Support Gambar Teknis:</span> <strong class="text-right text-[#8E1F34] text-[11px]">Denah, 3D, DED &amp; RAB</strong></li>
+                                <li class="flex justify-between items-center"><span>Business Advisory:</span> <strong class="text-right text-[#8E1F34] text-[10px]">Executive &amp; Governance</strong></li>
+                                <li class="flex justify-between items-center"><span>Revisi Konten:</span> <strong class="text-right">Maksimal 3x</strong></li>
+                                <li class="flex justify-between items-center"><span>Minimal Kontrak:</span> <strong class="text-right">12 Bulan</strong></li>
+                            </ul>
+                        </div>
+                        <a href="https://wa.me/6289526243141?text=Halo%20Verametra,%20saya%20tertarik%20dengan%20Paket%20Enterprise%20(Rp%206,0%20Juta/bln)" target="_blank" class="w-full bg-[#231F20] hover:bg-[#8E1F34] text-white py-2.5 text-center text-xs font-bold tracking-widest uppercase transition-colors">
+                            Pilih Enterprise
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="bg-white border border-gray-300 p-6 text-xs text-gray-700 shadow-sm">
+                    <strong class="text-[#8E1F34] uppercase tracking-wider block mb-2">Biaya diatas tidak termasuk:</strong>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Biaya promosi berbayar di social media ataupun google</li>
+                        <li>Biaya ulasan google business local guide</li>
+                        <li>Site visit untuk pengambilan gambar atau video</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. DAFTAR BIAYA SUPPORT TEKNIS (CHAPTER 03) -->
+        <section id="support" class="py-24 bg-[#231F20] border-b border-[#4E494A]/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                
+                <!-- Chapter Header -->
+                <div class="flex items-baseline gap-6 pb-6 border-b border-[#4E494A] mb-12">
+                    <span class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">03<span class="text-[#8E1F34] font-light">/</span></span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl text-white font-bold tracking-wide uppercase">3. DAFTAR BIAYA SUPPORT TEKNIS</h2>
+                        <span class="text-xs font-semibold tracking-[0.2em] text-[#8E1F34] uppercase">On-Demand Architectural Drafting &amp; Estimation Add-Ons</span>
+                    </div>
+                </div>
+
+                <div class="bg-[#1B1819] border border-[#4E494A] border-l-4 border-l-[#8E1F34] p-6 mb-10">
+                    <p class="text-sm text-white font-medium leading-relaxed">
+                        Bagi studio yang membutuhkan bantuan draf teknis atau estimator tambahan di luar alokasi paket bulanan, berlaku tarif add-on per <strong class="text-[#D6234A]">m²</strong> sebagai berikut:
+                    </p>
+                </div>
+
+                <!-- Add-On Cards Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div class="bg-[#191617] border border-[#4E494A] p-6 flex flex-col justify-between hover:border-[#8E1F34] transition-all">
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-mutedGray block mb-2">DRAFTING 01</span>
+                            <h3 class="text-base text-white font-bold mb-3">Perancangan Gambar Denah</h3>
+                            <div class="text-2xl font-extrabold text-white mb-4">Rp 10.000 <span class="text-xs font-normal text-mutedGray">/ m²</span></div>
+                        </div>
+                        <div class="border-t border-[#4E494A] pt-4 text-xs text-mutedGray">
+                            Termasuk revisi minor maksimal 3x
+                        </div>
+                    </div>
+
+                    <div class="bg-[#191617] border border-[#4E494A] p-6 flex flex-col justify-between hover:border-[#8E1F34] transition-all">
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-mutedGray block mb-2">VISUAL 02</span>
+                            <h3 class="text-base text-white font-bold mb-3">Pembuatan 3D Modeling</h3>
+                            <div class="text-2xl font-extrabold text-white mb-4">Rp 15.000 <span class="text-xs font-normal text-mutedGray">/ m²</span></div>
+                        </div>
+                        <div class="border-t border-[#4E494A] pt-4 text-xs text-mutedGray">
+                            Termasuk revisi minor maksimal 3x
+                        </div>
+                    </div>
+
+                    <div class="bg-[#191617] border border-[#4E494A] p-6 flex flex-col justify-between hover:border-[#8E1F34] transition-all">
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-mutedGray block mb-2">ENGINEERING 03</span>
+                            <h3 class="text-base text-white font-bold mb-3">Gambar Kerja / DED</h3>
+                            <div class="text-2xl font-extrabold text-white mb-4">Rp 15.000 <span class="text-xs font-normal text-mutedGray">/ m²</span></div>
+                        </div>
+                        <div class="border-t border-[#4E494A] pt-4 text-xs text-mutedGray">
+                            Termasuk revisi minor maksimal 3x
+                        </div>
+                    </div>
+
+                    <div class="bg-[#191617] border border-[#4E494A] p-6 flex flex-col justify-between hover:border-[#8E1F34] transition-all">
+                        <div>
+                            <span class="text-[10px] tracking-[0.2em] uppercase font-bold text-mutedGray block mb-2">ESTIMATE 04</span>
+                            <h3 class="text-base text-white font-bold mb-3">Perhitungan RAB</h3>
+                            <div class="text-2xl font-extrabold text-white mb-4">Rp 10.000 <span class="text-xs font-normal text-mutedGray">/ m²</span></div>
+                        </div>
+                        <div class="border-t border-[#4E494A] pt-4 text-xs text-mutedGray">
+                            Termasuk revisi minor maksimal 3x
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. SISTEM PEMBAYARAN & JAMINAN KERAHASIAAN / DATA PRIVACY (CHAPTER 04) -->
+        <section id="pembayaran" class="py-24 bg-[#231F20] border-b border-[#4E494A]/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                
+                <div class="flex items-baseline gap-6 pb-6 border-b border-[#4E494A] mb-12">
+                    <span class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">04<span class="text-[#8E1F34] font-light">/</span></span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl text-white font-bold tracking-wide uppercase">4. SISTEM PEMBAYARAN &amp; 5. JAMINAN KERAHASIAAN</h2>
+                        <span class="text-xs font-semibold tracking-[0.2em] text-[#8E1F34] uppercase">Commercial Terms &amp; Non-Disclosure Guarantee</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Sistem Pembayaran -->
+                    <div class="bg-[#1B1819] border border-[#4E494A] p-8 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-sm font-bold text-white tracking-wider uppercase mb-6 pb-3 border-b border-[#4E494A]">4. SISTEM PEMBAYARAN &amp; KETENTUAN TRANSAKSI</h3>
+                            <div class="space-y-6 text-xs text-mutedGray">
+                                <div>
+                                    <strong class="text-white block mb-2">1. Paket Berlangganan:</strong>
+                                    <ul class="space-y-2">
+                                        <li>• Invoice bulanan diterbitkan setiap tanggal 20 dan jatuh tempo pada tanggal 1 di awal periode berjalan.</li>
+                                        <li>• Pembayaran bulan ke-1 dilakukan saat penandatanganan SPK. Terdapat opsi hemat diskon 10% untuk pembayaran langsung 6-12 bulan dimuka.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong class="text-white block mb-2">2. Pekerjaan Support Gambar Teknis Tambahan:</strong>
+                                    <ul class="space-y-2">
+                                        <li>• Skema DP 50% dibayarkan di awal sebelum pengerjaan dimulai, dan Pelunasan 50% setelah pengerjaan selesai sebelum penyerahan file akhir.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong class="text-white block mb-2">3. Iklan &amp; Ulasan (Dibayarkan di Awal):</strong>
+                                    <ul class="space-y-2">
+                                        <li>• Biaya promosi berbayar di media sosial/Google serta ulasan Google Business Local Guide dibayarkan di awal sebelum pelaksanaan.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jaminan Kerahasiaan & Data Privacy -->
+                    <div class="bg-[#1B1819] border border-[#4E494A] p-8 flex flex-col justify-between border-l-4 border-l-[#8E1F34]">
+                        <div>
+                            <h3 class="text-sm font-bold text-white tracking-wider uppercase mb-6 pb-3 border-b border-[#4E494A]">5. JAMINAN KERAHASIAAN &amp; DATA PRIVACY</h3>
+                            <p class="text-xs text-mutedGray mb-4">
+                                Kami memahami betul pentingnya privasi pemilik bangunan dan eksklusivitas karya arsitektur Anda.
+                            </p>
+                            <div class="space-y-4 text-xs text-mutedGray">
+                                <div>
+                                    <strong class="text-white block mb-1">• Klausul Non-Disclosure Agreement:</strong>
+                                    <p>Seluruh materi proyek (foto lokasi, identitas klien, nilai RAB, dan gambar kerja) tidak akan pernah dipublikasikan atau dibagikan ke pihak mana pun tanpa izin tertulis dari studio Anda.</p>
+                                </div>
+                                <div>
+                                    <strong class="text-white block mb-1">• Visual Pemasaran Aman:</strong>
+                                    <p>Kami memfokuskan konten media sosial dan materi iklan menggunakan Scene Render AI atau desain konseptual independen agar aset riil klien Anda tetap terlindungi dari perdebatan atau komentar destruktif publik.</p>
+                                </div>
+                                <div>
+                                    <strong class="text-white block mb-1 text-green-400">• Keamanan Data &amp; Akun (Dijamin Aman):</strong>
+                                    <p>Seluruh data login, kredensial akun media sosial, website, dan platform digital klien dijamin aman, terjaga kerahasiaannya, serta dikelola secara profesional khusus untuk keperluan operasional studio Anda.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. TIMELINE PELAKSANAAN & SEO BENCHMARK (CHAPTER 05) -->
+        <section id="timeline" class="py-24 bg-[#231F20] border-b border-[#4E494A]/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                
+                <div class="flex items-baseline gap-6 pb-6 border-b border-[#4E494A] mb-12">
+                    <span class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">05<span class="text-[#8E1F34] font-light">/</span></span>
+                    <div>
+                        <h2 class="text-xl sm:text-2xl text-white font-bold tracking-wide uppercase">6. TIMELINE PELAKSANAAN &amp; 7. HUBUNGI KAMI</h2>
+                        <span class="text-xs font-semibold tracking-[0.2em] text-[#8E1F34] uppercase">Onboarding Roadmap &amp; SEO Benchmark</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+                    
+                    <div class="lg:col-span-7 space-y-6">
+                        <h3 class="text-sm font-bold text-white tracking-wider uppercase mb-4">Alur Kerja Tahap Awal (Onboarding Timeline):</h3>
+                        
+                        <div class="bg-[#191617] border border-[#4E494A] p-6 relative">
+                            <span class="text-xs font-bold text-[#4FA3C7] tracking-widest uppercase block mb-1">Minggu 1 – 2</span>
+                            <h4 class="text-base text-white font-bold mb-2">Persiapan &amp; Riset Keywords</h4>
+                            <p class="text-xs text-mutedGray leading-relaxed">
+                                Penyiapan materi, riset kata kunci (Keywords), &amp; pengumpulan konten website awal.
+                            </p>
+                        </div>
+
+                        <div class="bg-[#191617] border border-[#4E494A] p-6 relative">
+                            <span class="text-xs font-bold text-[#4FA3C7] tracking-widest uppercase block mb-1">Minggu 3 – 4</span>
+                            <h4 class="text-base text-white font-bold mb-2">Development &amp; Setup</h4>
+                            <p class="text-xs text-mutedGray leading-relaxed">
+                                Pembuatan website, optimasi struktur SEO, &amp; setup Google Maps Business Profile.
+                            </p>
+                        </div>
+
+                        <div class="bg-[#191617] border border-[#4E494A] p-6 relative">
+                            <span class="text-xs font-bold text-[#8E1F34] tracking-widest uppercase block mb-1">Minggu 5 &amp; Seterusnya</span>
+                            <h4 class="text-base text-white font-bold mb-2">Eksekusi Konten Konsisten</h4>
+                            <p class="text-xs text-mutedGray leading-relaxed">
+                                Eksekusi Konten Sosial Media Bulanan (Reels, Feed, &amp; Render AI) secara Konsisten.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 bg-[#1B1819] border border-[#4E494A] p-8 relative">
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#4FA3C7]"></div>
+                        <span class="text-[10px] tracking-[0.2em] text-[#4FA3C7] font-semibold uppercase block mb-3">CATATAN OPTIMASI PENCARIAN (SEO BENCHMARK)</span>
+                        <h4 class="text-lg text-white font-bold mb-4">Performa Google Search Rank</h4>
+                        <p class="text-xs text-mutedGray leading-relaxed mb-4">
+                            Perlu diketahui bahwa indeksasi dan performa posisi website pada mesin pencari Google (Google Search Rank) umumnya akan tampil dan bekerja secara optimal setelah <strong>3 bulan</strong> pengindeksan berjalan.
+                        </p>
+                        <p class="text-xs text-mutedGray leading-relaxed">
+                            Hal ini dikarenakan algoritma Google membutuhkan periode <em>crawling</em> &amp; pembentukan reputasi domain di wilayah target proyek Anda.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. HUBUNGI KAMI / CONTACT -->
+        <section id="kontak" class="py-24 bg-[#231F20]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+                
+                <span class="text-xs font-semibold tracking-[0.25em] text-[#8E1F34] uppercase block mb-3">KONSULTASI GRATIS</span>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold tracking-tight mb-6">
+                    Siap Memajukan &amp; Memperluas Jangkauan Bisnis Studio Anda?
+                </h2>
+                <div class="w-16 h-1 bg-[#8E1F34] mx-auto mb-8"></div>
+                <p class="text-mutedGray text-sm sm:text-base max-w-xl mx-auto mb-12">
+                    Hubungi kami untuk sesi konsultasi gratis mengenai strategi pemasaran &amp; kebutuhan teknis studio Anda:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12 text-left">
+                    
+                    <div class="bg-[#191617] border border-[#4E494A] p-6">
+                        <span class="text-[10px] tracking-[0.2em] text-mutedGray uppercase block mb-1">Brand Agency</span>
+                        <div class="text-sm font-bold text-white">Verametra Indonesia</div>
+                    </div>
+
+                    <div class="bg-[#191617] border border-[#4E494A] p-6">
+                        <span class="text-[10px] tracking-[0.2em] text-mutedGray uppercase block mb-1">Website Resmi</span>
+                        <div class="text-sm font-bold text-[#4FA3C7]">verametra.com</div>
+                    </div>
+
+                    <div class="bg-[#191617] border border-[#4E494A] p-6">
+                        <span class="text-[10px] tracking-[0.2em] text-mutedGray uppercase block mb-1">WhatsApp Sales</span>
+                        <div class="text-sm font-bold text-white">0895-2624-3141</div>
+                    </div>
+
+                    <div class="bg-[#191617] border border-[#4E494A] p-6">
+                        <span class="text-[10px] tracking-[0.2em] text-mutedGray uppercase block mb-1">Email Resmi</span>
+                        <div class="text-sm font-bold text-white truncate">verametra@gmail.com</div>
+                    </div>
+
+                </div>
+
+                <div class="flex justify-center">
+                    <a href="https://wa.me/6289526243141?text=Halo%20Verametra,%20saya%20ingin%20berkonsultasi%20mengenai%20layanan%20Digital%20Agency%20dan%20Support%20Teknis." target="_blank" rel="noopener noreferrer" class="bg-[#8E1F34] hover:bg-[#D6234A] text-white px-10 py-4 text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-2xl flex items-center gap-3">
+                        <i data-lucide="message-square" class="w-5 h-5"></i>
+                        <span>Hubungi WhatsApp Sales</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#191617] border-t border-[#4E494A] py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-3 h-3 bg-[#8E1F34] rotate-45"></div>
+                <span class="font-bold tracking-[0.18em] text-sm text-white">VERAMETRA INDONESIA</span>
+            </div>
+            <p class="text-xs text-mutedGray tracking-wider">
+                &copy; 2026 / 2027 verametra.com. All rights reserved.
+            </p>
+            <div class="flex items-center gap-6 text-xs text-mutedGray">
+                <a href="#tentang" class="hover:text-white transition-colors">Tentang</a>
+                <a href="#paket" class="hover:text-white transition-colors">Paket</a>
+                <a href="#support" class="hover:text-white transition-colors">Support</a>
+                <a href="#kontak" class="hover:text-white transition-colors">Kontak</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Slider, Mobile Menu & Lucide Icons -->
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+            dots.forEach((dot, i) => {
+                dot.style.width = i === index ? '2rem' : '1rem';
+                dot.style.backgroundColor = i === index ? '#ffffff' : 'rgba(255,255,255,0.4)';
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
